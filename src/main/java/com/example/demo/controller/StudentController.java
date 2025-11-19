@@ -25,4 +25,8 @@ public class StudentController {
         studentService.testMyBatisFirstLevelCache();
     }
 
+    @GetMapping("/test-second-cache")
+    public void testMyBatisSecondLevelCache() {
+        studentService.testMyBatisSecondLevelCache();
+    }
 }

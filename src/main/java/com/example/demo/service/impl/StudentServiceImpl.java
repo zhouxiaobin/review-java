@@ -33,4 +33,18 @@ public class StudentServiceImpl implements StudentService
         // 比较两次查询结果是否相同（同一个 SqlSession 下，一级缓存生效）
         System.out.println("Is same object: " + (students1 == students2));
     }
+
+    @Override
+    public void testMyBatisSecondLevelCache() {
+        System.out.println("First Query:");
+        List<Student> students1 = studentMapper.queryStudentList();
+        System.out.println(students1);
+
+        System.out.println("Second Query:");
+        List<Student> students2 = studentMapper.queryStudentList();
+        System.out.println(students2);
+
+        // 比较两次查询结果是否相同（不同 SqlSession 下，二级缓存生效）
+        System.out.println("Is same object: " + (students1 == students2));
+    }
 }

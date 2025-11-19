@@ -8,5 +8,6 @@ import java.util.List;
 public interface StudentService {
     List<Student> queryStudentList();
     void  testMyBatisFirstLevelCache();
+    void  testMyBatisSecondLevelCache();
 }
 
