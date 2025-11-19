@@ -12,4 +12,6 @@ public interface StudentMapper
     //查询所有student方法
     List<Student> queryStudentList();
     List<Student> queryStudentsByDynamicParams(String username, Integer age);
+
+    List<Student> queryStudentWithAddress();
 }

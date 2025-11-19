@@ -12,6 +12,8 @@ public class Student implements Serializable
     private String sex;
     private int age;
 
+    private Address address; // 新增 Address 对象
+
     public int getId() {
         return id;
     }
@@ -52,6 +54,14 @@ public class Student implements Serializable
         this.age = age;
     }
 
+    // Getters and Setters
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
     @Override
     public String toString() {
         return "Student{" +

@@ -11,6 +11,18 @@
         <result column="sex" jdbcType="VARCHAR" property="sex"/>
         <result column="age" jdbcType="INTEGER" property="age"/>
     </resultMap>
+    <resultMap id="StudentWithAddressMap" type="com.example.demo.entity.Student">
+        <result column="id" jdbcType="INTEGER" property="id"/>
+        <result column="userName" jdbcType="VARCHAR" property="username"/>
+        <result column="sex" jdbcType="VARCHAR" property="sex"/>
+        <result column="age" jdbcType="INTEGER" property="age"/>
+        <association property="address" javaType="com.example.demo.entity.Address">
+            <result column="addressId" jdbcType="INTEGER" property="addressId"/>
+            <result column="recipientName" jdbcType="VARCHAR" property="recipientName"/>
+            <result column="phone" jdbcType="VARCHAR" property="phone"/>
+            <result column="address" jdbcType="VARCHAR" property="addressName"/>
+        </association>
+    </resultMap>
     <select id="queryStudentList" resultMap="BaseResultMap">
        SELECT * FROM student
     </select>
@@ -26,4 +38,14 @@
             </if>
         </where>
     </select>
+
+    <select id="queryStudentWithAddress" resultMap="StudentWithAddressMap">
+        SELECT
+            s.id, s.userName, s.passWord, s.sex, s.age,
+            a.addressId, a.recipientName, a.phone, a.address
+        FROM student s
+                 LEFT JOIN address a ON s.addressId = a.addressId
+    </select>
+
+
 </mapper>

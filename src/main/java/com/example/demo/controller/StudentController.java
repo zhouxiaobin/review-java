@@ -35,4 +35,9 @@ public class StudentController {
         List<Student> students = studentService.testDynamicQuery(username, age );
         return students;
     }
+
+    @GetMapping("/query-with-address")
+    public List<Student> queryStudentWithAddress() {
+        return studentService.queryStudentWithAddress();
+    }
 }

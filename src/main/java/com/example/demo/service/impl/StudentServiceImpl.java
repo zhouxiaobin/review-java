@@ -54,4 +54,9 @@ public class StudentServiceImpl implements StudentService
         System.out.println("Dynamic Query Result: " + students);
         return students;
     }
+
+    @Override
+    public List<Student> queryStudentWithAddress() {
+        return studentMapper.queryStudentWithAddress();
+    }
 }
