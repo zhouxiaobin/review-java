@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+        </Console>
+    </Appenders>
+    <Loggers>
+        <!-- MyBatis 日志 -->
+        <Logger name="org.apache.ibatis" level="DEBUG" />
+        <Logger name="org.apache.ibatis.logging.stdout" level="DEBUG" />
+
+        <!-- 数据库连接日志 -->
+        <Logger name="com.mysql.cj" level="DEBUG" />
+
+        <Root level="INFO">
+            <AppenderRef ref="Console" />
+        </Root>
+    </Loggers>
+</Configuration>
