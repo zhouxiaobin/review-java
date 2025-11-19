@@ -12,5 +12,7 @@ public interface StudentService {
     List<Student> testDynamicQuery(String username, Integer age);
 
     List<Student> queryStudentWithAddress();
+
+    List<Student> queryStudentsWithCourses();
 }
 

@@ -2,6 +2,7 @@ package com.example.demo.entity;
 
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Student implements Serializable
 {
@@ -12,6 +13,7 @@ public class Student implements Serializable
     private String sex;
     private int age;
 
+    private List<Course> courses;
     private Address address; // 新增 Address 对象
 
     public int getId() {
@@ -61,6 +63,14 @@ public class Student implements Serializable
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public List<Course>  getCourses() {
+        return courses;
+    }
+
+    public void setCourses(List<Course>  courses) {
+        this.courses = courses;
     }
     @Override
     public String toString() {

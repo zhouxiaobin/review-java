@@ -40,4 +40,9 @@ public class StudentController {
     public List<Student> queryStudentWithAddress() {
         return studentService.queryStudentWithAddress();
     }
+
+    @GetMapping("/students-with-courses")
+    public List<Student> getStudentsWithCourses() {
+        return studentService.queryStudentsWithCourses();
+    }
 }

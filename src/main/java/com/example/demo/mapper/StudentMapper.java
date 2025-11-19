@@ -14,4 +14,6 @@ public interface StudentMapper
     List<Student> queryStudentsByDynamicParams(String username, Integer age);
 
     List<Student> queryStudentWithAddress();
+
+    List<Student> queryStudentsWithCourses();
 }

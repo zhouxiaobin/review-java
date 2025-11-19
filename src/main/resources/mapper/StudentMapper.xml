@@ -23,6 +23,16 @@
             <result column="address" jdbcType="VARCHAR" property="addressName"/>
         </association>
     </resultMap>
+    <resultMap id="StudentWithCoursesMap" type="com.example.demo.entity.Student">
+        <result column="id" jdbcType="INTEGER" property="id"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <collection property="courses" ofType="com.example.demo.entity.Course">
+            <id property="id" column="course_id"/>
+            <result property="courseName" column="course_name"/>
+            <result property="teacher" column="teacher"/>
+        </collection>
+    </resultMap>
+
     <select id="queryStudentList" resultMap="BaseResultMap">
        SELECT * FROM student
     </select>
@@ -47,5 +57,20 @@
                  LEFT JOIN address a ON s.addressId = a.addressId
     </select>
 
+
+    <select id="queryStudentsWithCourses" resultMap="StudentWithCoursesMap">
+        SELECT
+            s.id AS id,
+            s.username AS username,
+            c.id AS course_id,
+            c.course_name AS course_name,
+            c.teacher AS teacher
+        FROM
+            student s
+                LEFT JOIN
+            student_course sc ON s.id = sc.student_id
+                LEFT JOIN
+            course c ON sc.course_id = c.id
+    </select>
 
 </mapper>
