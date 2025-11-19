@@ -20,4 +20,9 @@ public class StudentController {
         return students;
     }
 
+    @GetMapping("/test-cache")
+    public void testMyBatisFirstLevelCache() {
+        studentService.testMyBatisFirstLevelCache();
+    }
+
 }
