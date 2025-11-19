@@ -29,4 +29,10 @@ public class StudentController {
     public void testMyBatisSecondLevelCache() {
         studentService.testMyBatisSecondLevelCache();
     }
+
+    @GetMapping("/test-dynamic-query")
+    public List<Student> testDynamicQuery(String username, Integer age) {
+        List<Student> students = studentService.testDynamicQuery(username, age );
+        return students;
+    }
 }

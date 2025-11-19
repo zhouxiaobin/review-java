@@ -47,4 +47,11 @@ public class StudentServiceImpl implements StudentService
         // 比较两次查询结果是否相同（不同 SqlSession 下，二级缓存生效）
         System.out.println("Is same object: " + (students1 == students2));
     }
+
+    @Override
+    public List<Student> testDynamicQuery(String username, Integer age) {
+        List<Student> students = studentMapper.queryStudentsByDynamicParams(username, age);
+        System.out.println("Dynamic Query Result: " + students);
+        return students;
+    }
 }

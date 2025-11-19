@@ -14,4 +14,16 @@
     <select id="queryStudentList" resultMap="BaseResultMap">
        SELECT * FROM student
     </select>
+
+    <select id="queryStudentsByDynamicParams" resultMap="BaseResultMap">
+        SELECT * FROM student
+        <where>
+            <if test="username != null and username != ''">
+                AND userName = #{username}
+            </if>
+            <if test="age != null">
+                AND age = #{age}
+            </if>
+        </where>
+    </select>
 </mapper>

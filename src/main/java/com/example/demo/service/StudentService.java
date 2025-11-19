@@ -9,5 +9,6 @@ public interface StudentService {
     List<Student> queryStudentList();
     void  testMyBatisFirstLevelCache();
     void  testMyBatisSecondLevelCache();
+    List<Student> testDynamicQuery(String username, Integer age);
 }
 
