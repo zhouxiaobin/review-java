@@ -45,4 +45,9 @@ public class StudentController {
     public List<Student> getStudentsWithCourses() {
         return studentService.queryStudentsWithCourses();
     }
+
+    @GetMapping("/test-reuse-executor")
+    public List<Student> testReuseExecutor() {
+        return studentService.queryStudentList();
+    }
 }
