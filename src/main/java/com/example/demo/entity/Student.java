@@ -13,6 +13,7 @@ public class Student implements Serializable
     private String sex;
     private int age;
 
+    private String addressId; // 地址ID，用于关联Address实体
     private List<Course> courses;
     private Address address; // 新增 Address 对象
 
@@ -72,6 +73,16 @@ public class Student implements Serializable
     public void setCourses(List<Course>  courses) {
         this.courses = courses;
     }
+
+
+    public String getAddressId() {
+        return addressId;
+    }
+
+    public void setAddressId(String addressId) {
+        this.addressId= addressId;
+    }
+
     @Override
     public String toString() {
         return "Student{" +

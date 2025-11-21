@@ -73,4 +73,12 @@
             course c ON sc.course_id = c.id
     </select>
 
+
+    <insert id="batchInsertStudents" parameterType="list">
+        INSERT INTO student (username, password, sex, age,addressId)
+        VALUES
+        <foreach collection="list" item="student" separator=",">
+            (#{student.username}, #{student.password}, #{student.sex}, #{student.age}, #{student.addressId})
+        </foreach>
+    </insert>
 </mapper>

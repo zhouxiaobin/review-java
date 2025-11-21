@@ -16,4 +16,6 @@ public interface StudentMapper
     List<Student> queryStudentWithAddress();
 
     List<Student> queryStudentsWithCourses();
+
+    void batchInsertStudents(List<Student> students);
 }

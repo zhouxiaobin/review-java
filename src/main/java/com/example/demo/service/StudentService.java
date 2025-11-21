@@ -14,5 +14,6 @@ public interface StudentService {
     List<Student> queryStudentWithAddress();
 
     List<Student> queryStudentsWithCourses();
+    void batchInsertStudents(List<Student> students);
 }
 

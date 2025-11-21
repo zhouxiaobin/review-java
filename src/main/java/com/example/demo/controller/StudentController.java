@@ -5,6 +5,8 @@ import com.example.demo.entity.Student;
 import com.example.demo.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -49,5 +51,11 @@ public class StudentController {
     @GetMapping("/test-reuse-executor")
     public List<Student> testReuseExecutor() {
         return studentService.queryStudentList();
+    }
+
+    @PostMapping("/batch-insert")
+    public String batchInsertStudents(@RequestBody List<Student> students) {
+        studentService.batchInsertStudents(students);
+        return "Batch insert completed!";
     }
 }

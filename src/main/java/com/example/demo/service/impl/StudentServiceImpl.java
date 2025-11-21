@@ -4,6 +4,7 @@ package com.example.demo.service.impl;
 import com.example.demo.mapper.StudentMapper;
 import com.example.demo.entity.Student;
 import com.example.demo.service.StudentService;
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,15 +12,15 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class StudentServiceImpl implements StudentService
-{
+public class StudentServiceImpl implements StudentService {
     @Autowired
     private StudentMapper studentMapper;
+
     @Override
-    public List<Student> queryStudentList()
-    {
+    public List<Student> queryStudentList() {
         return studentMapper.queryStudentList();
     }
+
     @Override
     @Transactional
     public void testMyBatisFirstLevelCache() {
@@ -64,4 +65,11 @@ public class StudentServiceImpl implements StudentService
     public List<Student> queryStudentsWithCourses() {
         return studentMapper.queryStudentsWithCourses();
     }
+
+    @Override
+    @Transactional
+    public void batchInsertStudents(List<Student> students) {
+        studentMapper.batchInsertStudents(students);
+    }
+
 }
