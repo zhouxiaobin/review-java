@@ -10,6 +10,7 @@
         <result column="passWord" jdbcType="VARCHAR" property="password"/>
         <result column="sex" jdbcType="VARCHAR" property="sex"/>
         <result column="age" jdbcType="INTEGER" property="age"/>
+        <result column="vipType" jdbcType="INTEGER" property="vipType" typeHandler="com.example.demo.handler.VipTypeHandler"/>
     </resultMap>
     <resultMap id="StudentWithAddressMap" type="com.example.demo.entity.Student">
         <result column="id" jdbcType="INTEGER" property="id"/>

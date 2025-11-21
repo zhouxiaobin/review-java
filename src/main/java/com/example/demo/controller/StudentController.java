@@ -58,4 +58,9 @@ public class StudentController {
         studentService.batchInsertStudents(students);
         return "Batch insert completed!";
     }
+
+    @GetMapping("/query-with-vip")
+    public List<Student> queryStudentsWithVipType() {
+        return studentService.queryStudentList();
+    }
 }

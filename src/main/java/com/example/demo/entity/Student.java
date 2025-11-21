@@ -21,6 +21,16 @@ public class Student implements Serializable
         return id;
     }
 
+    private VipType vipType;
+
+    public VipType getVipType() {
+        return vipType;
+    }
+
+    public void setVipType(VipType vipType) {
+        this.vipType = vipType;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
