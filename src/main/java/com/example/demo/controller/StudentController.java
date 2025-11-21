@@ -9,12 +9,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.sql.DataSource;
 import java.util.List;
 
 @RestController
 public class StudentController {
     @Autowired
     private StudentService studentService;
+
+    @Autowired
+    private DataSource dataSource;
 
     @GetMapping("/query")
     public List<Student> queryStudentList() {
@@ -62,5 +66,10 @@ public class StudentController {
     @GetMapping("/query-with-vip")
     public List<Student> queryStudentsWithVipType() {
         return studentService.queryStudentList();
+    }
+
+    @GetMapping("/datasource-type")
+    public String getDataSourceType() {
+        return "DataSource implementation: " + dataSource.getClass().getName();
     }
 }
